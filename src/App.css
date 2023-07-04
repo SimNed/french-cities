@@ -7,6 +7,10 @@ body, ul{
   padding: 0;
 }
 
+h1{
+  text-align: center;
+}
+
 ul > li{
   list-style: none;
 }

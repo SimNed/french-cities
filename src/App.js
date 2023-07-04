@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import SearchForm from './components/SearchForm';
+import SearchForm from './components/SearchSection';
+import CitiesSection from './components/CitiesSection';
+
 import './App.css';
 
 function App() {
-  //SECTION SEARCH
-    //search department by region
-    //search city by depart 
-  //SECTION RESULTAT
-  //SECTION DETAILS
+
+  const [cities, setCities] = useState([]);
+
+  function handleCitiesSearchResult(result){
+    setCities(result);
+  }
 
   return(
     <main>
       <h1>Villes Françaises</h1>
-      <SearchForm></SearchForm>
+      <SearchForm handleSearchResult={(result) => handleCitiesSearchResult(result)}></SearchForm>
+      <CitiesSection cities={cities}></CitiesSection>
     </main>
   )
 }
