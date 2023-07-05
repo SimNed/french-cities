@@ -53,7 +53,7 @@ const SearchSection = ({ handleSearchResult }) => {
     }
 
     return(
-        <section>
+        <section className="search-section">
             <input placeholder="entrer une ville..."></input>
             <SearchSelectField 
                 name="regions" 

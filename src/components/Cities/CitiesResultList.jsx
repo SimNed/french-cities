@@ -5,7 +5,7 @@ const CitiesResultList = ({ citiesDisplayed, citySelection }) => {
         citySelection(cityToSelect)
     }
 
-    return <ul>{citiesDisplayed.map(city => 
+    return <ul className="result-section">{citiesDisplayed.map(city => 
             <li key={city.nom} onClick={() => handleCitySelection(city.nom)}>{city.nom}</li>
         )}
     </ul>
