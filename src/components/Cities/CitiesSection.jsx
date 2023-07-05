@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AlphabeticalNav from "./AlphabeticalNav";
 import CitiesResultList from "./CitiesResultList";
 
-const CitiesSection = ({ cities }) => {
+const CitiesSection = ({ cities, citySelection }) => {
 
     const [citiesDisplayed, setCitiesDisplayed] = useState([]);
     
@@ -11,16 +11,10 @@ const CitiesSection = ({ cities }) => {
         setCitiesDisplayed(citiesToDisplay);
     }
 
-    // A faire
-    // function handleCitySelection(cityToDisplay){
-    //     const cityDetailsToDisplay = cities.filter(city => city.nom === cityToDisplay.nom);
-    //     setCitiesDisplayed([...citiesToDisplay]);
-    // }
-
     return(
         <section>
             <AlphabeticalNav cities={cities} handleLetterSelection={(letter) => handleLetterSelection(letter)}></AlphabeticalNav>
-            <CitiesResultList citiesDisplayed={citiesDisplayed}></CitiesResultList>
+            <CitiesResultList citiesDisplayed={citiesDisplayed} citySelection={citySelection}></CitiesResultList>
         </section>
     );
 }

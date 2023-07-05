@@ -1,18 +1,16 @@
-import { useState, useEffect } from "react";
-
-const CitiesResultList = ({ citiesDisplayed, handleCitySelection }) => {
+const CitiesResultList = ({ citiesDisplayed, citySelection }) => {
     
-    const [citiesInJsx, setCitiesInJsx] = useState();
 
-    useEffect(() => {
-        const jsx = citiesDisplayed.map(city => 
-            <li key={city.nom} onClick={(e) => handleCitySelection(e.target.value)}>{city.nom}</li>
-        );
 
-        setCitiesInJsx([...jsx]);
-    }, [citiesDisplayed])
+    function handleCitySelection(cityName){
+        const cityToSelect = citiesDisplayed.find(city => city.nom === cityName)
+        citySelection(cityToSelect)
+    }
 
-    return <ul>{ citiesInJsx }</ul>
+    return <ul>{citiesDisplayed.map(city => 
+            <li key={city.nom} onClick={() => handleCitySelection(city.nom)}>{city.nom}</li>
+        )}
+    </ul>
 } 
 
 export default CitiesResultList;

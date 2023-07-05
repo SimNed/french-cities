@@ -1,6 +1,7 @@
-const CityDetails = ({ city }) => {
+const CityDetails = ({ selectedCity }) => {
+
     return(
-        <h1>city.nom</h1>
+        <h1>{selectedCity.nom}</h1>
     )
 }
 
