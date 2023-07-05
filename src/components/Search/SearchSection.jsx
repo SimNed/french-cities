@@ -46,7 +46,7 @@ const SearchSection = ({ handleSearchResult }) => {
 
     function handleSubmit(){
         if(selectedDepartmentCode !== ""){
-            axios.get(baseUrl + '/departements/' + selectedDepartmentCode + '/communes').then((response) => {     
+            axios.get(baseUrl + '/departements/' + selectedDepartmentCode + '/communes?fields=code,nom,departement,region,surface,population,mairie').then((response) => {     
                 handleSearchResult(response.data)
             });
         }
@@ -54,6 +54,7 @@ const SearchSection = ({ handleSearchResult }) => {
 
     return(
         <section>
+            <input placeholder="entrer une ville..."></input>
             <SearchSelectField 
                 name="regions" 
                 options={regionOptions} 

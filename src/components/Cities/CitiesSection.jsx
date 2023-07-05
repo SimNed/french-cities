@@ -12,7 +12,7 @@ const CitiesSection = ({ cities, citySelection }) => {
     }
 
     return(
-        <section>
+        <section className="result-section">
             <AlphabeticalNav cities={cities} handleLetterSelection={(letter) => handleLetterSelection(letter)}></AlphabeticalNav>
             <CitiesResultList citiesDisplayed={citiesDisplayed} citySelection={citySelection}></CitiesResultList>
         </section>

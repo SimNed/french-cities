@@ -1,7 +1,5 @@
 const CitiesResultList = ({ citiesDisplayed, citySelection }) => {
     
-
-
     function handleCitySelection(cityName){
         const cityToSelect = citiesDisplayed.find(city => city.nom === cityName)
         citySelection(cityToSelect)

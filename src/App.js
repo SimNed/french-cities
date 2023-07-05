@@ -11,26 +11,20 @@ function App() {
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState({});
 
-  useEffect(() => {
-    console.log(selectedCity)
-  }, [selectedCity])
-
   function handleCitiesSearchResult(result){
     setCities(result);
   }
 
   return(
-    <main>
+    <div>
       <h1>Villes Françaises</h1>
       <SearchForm handleSearchResult={(result) => handleCitiesSearchResult(result)}></SearchForm>
-
-
+      <main>
         <CitiesSection cities={cities} citySelection={setSelectedCity}></CitiesSection>
-        <CityDetails selectedCity={selectedCity}></CityDetails>
-
-
+        <CityDetails selectedCity={selectedCity}></CityDetails>      
+      </main>
       
-    </main>
+    </div>
   )
 }
 
