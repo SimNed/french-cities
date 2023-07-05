@@ -2,14 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 import SearchSelectField from "./SearchSelectField";
+import AutoCompleteInput from "./AutoCompleteInput";
 
 const SearchSection = ({ handleSearchResult }) => {
 
     const baseUrl = 'https://geo.api.gouv.fr';
 
+    const [autoCompleteOptions, setAutoCompleteOptions] = useState([]);
     const [regionOptions, setRegionOptions] = useState([]);
     const [departmentOptions, setDepartmentOptions] = useState([]);
 
+    const [autoCompleteInputValue, setAutoCompleteInputValue] = useState(""); 
     const [selectedRegionCode, setSelectedRegionCode] = useState("");
     const [selectedDepartmentCode, setSelectedDepartmentCode] = useState("");
 
@@ -29,12 +32,25 @@ const SearchSection = ({ handleSearchResult }) => {
     }, []);
 
     useEffect(() => {
+        if(autoCompleteInputValue !== ""){
+            axios.get(baseUrl + '/communes?nom=' + autoCompleteInputValue + '&fields=code,nom,departement,region,surface,population,mairie&boost=population&limit=5').then((response) => {
+                setAutoCompleteOptions([...response.data]);
+            });
+        }
+    }, [autoCompleteInputValue]);
+    
+    useEffect(() => {
         if(selectedRegionCode !== ""){
             axios.get(baseUrl + '/regions/' + selectedRegionCode + '/departements').then((response) => {     
                 setDepartmentOptions([...response.data]);
             });
         }
     }, [selectedRegionCode]);
+
+    function handleAutoCompleteInput(value){
+        console.log(value)
+        setAutoCompleteInputValue(value)
+    }
 
     function handleRegionSelection(regionCode){
         setSelectedRegionCode(regionCode)
@@ -54,7 +70,7 @@ const SearchSection = ({ handleSearchResult }) => {
 
     return(
         <section className="search-section">
-            <input placeholder="entrer une ville..."></input>
+            <AutoCompleteInput options={autoCompleteOptions} onChange={(value) => handleAutoCompleteInput(value)}></AutoCompleteInput>
             <SearchSelectField 
                 name="regions" 
                 options={regionOptions} 

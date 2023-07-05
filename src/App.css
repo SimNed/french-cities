@@ -5,10 +5,15 @@
   --primary-font-family: 'Jost', sans-serif;
   --secondary-font-family: 'Roboto Slab', serif;
   --dark-color: black;
-  --medium-color: gray;
+  --medium-color: lightgray;
   --light-color: whitesmoke;
   --hover-color: cornflowerblue;
+  --hover-transition: all ease 0.3s;
   --border: 1px solid var(--medium-color);
+}
+
+*{
+  box-sizing: border-box;
 }
 
 body, ul{
@@ -26,8 +31,13 @@ ul > li{
   list-style: none;
 }
 
-select, input{
+select, input, button{
+  padding: 0.35rem;
   font-family: var(--primary-font-family);
+}
+
+select, button{
+  margin-top: 1rem;
 }
 
 main{
@@ -37,7 +47,6 @@ main{
   display: flex;
   gap: 3rem;
   justify-content: space-between;
-  /* height: 80vh; */
   margin: auto;
 }
 
@@ -50,6 +59,7 @@ main{
 }
 
 aside{
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   max-width: 300px;
@@ -64,8 +74,34 @@ aside{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 80%;
   padding: 1rem;
+}
+
+.autocomplete-input-container{
+  width: 100%;
+  position: relative;
+  font-family: var(--primary-font-family);
+}
+
+.autocomplete-input-container > input{
+  width: 100%;
+}
+
+.autocomplete-options-container{
+  position: absolute;
+  width: 100%;
+  border: var(--border);
+}
+
+.autocomplete-options-container > li{
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: var(--hover-transition);
+}
+
+.autocomplete-options-container > li:hover{
+  background-color: var(--hover-color);
+  color: var(--light-color);
 }
 
 .alphabetical-nav{
@@ -107,7 +143,7 @@ aside{
   padding: 1rem;
   cursor: pointer;
   border-top: var(--border);
-  transition: all ease 0.3s;
+  transition: var(--hover-transition);
 }
 
 .result-section > li:last-child{
@@ -115,7 +151,7 @@ aside{
 }
 
 .result-section > li:hover{
-  color: white;
+  color: var(--light-color);
   background-color: var(--hover-color);
 }
 
