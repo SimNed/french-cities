@@ -18,10 +18,15 @@ ul > li{
 .alphabetical-nav{
   display: flex;
   justify-content: space-around;
-  color: gray;
-  font-weight: 600;
+  
 }
 
-.alphabetical-nav > li{
+.active-letter{
+  font-weight: 600;
   cursor: pointer;
+}
+
+.unactive-letter{
+  color: gray;
+  cursor: default;
 }

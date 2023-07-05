@@ -5,17 +5,17 @@ import CitiesResultList from "./CitiesResultList";
 const CitiesSection = ({ cities }) => {
 
     const [citiesDisplayed, setCitiesDisplayed] = useState([]);
-    // const [alphabetIndex, setAlphabetIndex] = useState("a");
-
-    // useEffect(() => {
-        
-    //     console.log(citiesToDisplay)
-    // }, [alphabetIndex])
     
     function handleLetterSelection(letter){
         const citiesToDisplay = cities.filter(city => city.nom.charAt(0) === letter.toUpperCase());
-        setCitiesDisplayed([...citiesToDisplay]);
+        setCitiesDisplayed(citiesToDisplay);
     }
+
+    // A faire
+    // function handleCitySelection(cityToDisplay){
+    //     const cityDetailsToDisplay = cities.filter(city => city.nom === cityToDisplay.nom);
+    //     setCitiesDisplayed([...citiesToDisplay]);
+    // }
 
     return(
         <section>
