@@ -30,3 +30,12 @@ function App() {
 }
 
 export default App;
+
+// Axes d'améliorations:
+// !! Améliorer les requêtes api via axios (utiliser des paramètres de requetes, ajouter un try, catch et finally).
+// !! Réinitialiser la valeur par défault des départements lorsque l'option "Toutes les régions" à été resélectionné.
+// !! Factorisation du CSS
+// !! Réinitialiser la valeur par défault des champs de recherches lors de la soumission d'une requête et de la sélection d'une ville.
+
+// Ajouter la fonction de sélection de villes par nombres d'habitants
+// Ajouter la fonction de sélection de villes par superficie
