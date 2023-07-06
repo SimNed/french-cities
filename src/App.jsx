@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchSection from './components/Search/SearchSection';
-import CitiesSection from './components/Cities/CitiesSection';
+import SearchResultSection from './components/SearchResult/SearchResultSection';
 import CityDetails from './components/Details/CityDetails';
 
 import './App.css';
@@ -18,12 +18,12 @@ function App() {
   return (
     <main>
       <aside>
-        <SearchSection handleSearchResult={(result) => handleCitiesSearchResult(result)} citySelection={setSelectedCity}></SearchSection>
-        <CitiesSection cities={cities} citySelection={setSelectedCity}></CitiesSection>
+        <SearchSection handleSearchResult={(result) => handleCitiesSearchResult(result)} citySelection={setSelectedCity} />
+        <SearchResultSection cities={cities} citySelection={setSelectedCity} />
       </aside>
       <section className='main-section'>
         <h1>Villes Françaises</h1>
-        <CityDetails selectedCity={selectedCity}></CityDetails>
+        <CityDetails selectedCity={selectedCity} />
       </section>
     </main>
   )

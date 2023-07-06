@@ -18,8 +18,6 @@ const AutoCompleteInput = ({ placeholder, options, onChange, onOptionClick }) =>
                 )
             }</ul>)
             }
-
-
         </div>
     )
 }

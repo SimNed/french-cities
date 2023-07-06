@@ -80,21 +80,19 @@ const SearchSection = ({ handleSearchResult, citySelection }) => {
                 options={autoCompleteOptions}
                 onChange={(value) => handleAutoCompleteInput(value)}
                 onOptionClick={(option) => handleOptionSelection(option)}
-            ></AutoCompleteInput>
+            />
             <SearchSelectField
                 name="regions"
                 options={regionOptions}
                 defaultOptionText="Toutes les régions"
                 onChange={(region) => handleRegionSelection(region)}
-            >
-            </SearchSelectField>
+            />
             <SearchSelectField
                 name="department"
                 options={departmentOptions}
                 defaultOptionText="Tous les départements"
                 onChange={(department) => handleDepartmentSelection(department)}
-            >
-            </SearchSelectField>
+            />
             <button onClick={handleSubmit}>Rechercher</button>
         </section>
     )

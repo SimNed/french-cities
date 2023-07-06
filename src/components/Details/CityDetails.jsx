@@ -5,15 +5,15 @@ const LocationSetter = ({ selectedCity }) => {
     const map = useMap()
 
     useEffect(() => {
-        if(Object.keys(selectedCity).length > 0)
+        if (Object.keys(selectedCity).length > 0)
             map.setView([selectedCity.mairie.coordinates[1], selectedCity.mairie.coordinates[0]], 14)
     }, [selectedCity])
-    
+
     return null
 }
 
 const CityDetails = ({ selectedCity }) => {
-    if(Object.keys(selectedCity).length > 0){
+    if (Object.keys(selectedCity).length > 0) {
         console.log(selectedCity)
         return (
             <section className="details-section">
@@ -26,13 +26,13 @@ const CityDetails = ({ selectedCity }) => {
                 </div>
                 <div >
                     <MapContainer>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <LocationSetter selectedCity={selectedCity}/>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <LocationSetter selectedCity={selectedCity} />
                     </MapContainer>
-                </div>         
+                </div>
             </section>
         )
     }

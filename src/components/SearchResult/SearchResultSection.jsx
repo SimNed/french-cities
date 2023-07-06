@@ -5,16 +5,16 @@ import CitiesResultList from "./CitiesResultList";
 const CitiesSection = ({ cities, citySelection }) => {
 
     const [citiesDisplayed, setCitiesDisplayed] = useState([]);
-    
-    function handleLetterSelection(letter){
+
+    function handleLetterSelection(letter) {
         const citiesToDisplay = cities.filter(city => city.nom.charAt(0) === letter.toUpperCase());
         setCitiesDisplayed(citiesToDisplay);
     }
 
-    return(
+    return (
         <section>
-            <AlphabeticalNav cities={cities} handleLetterSelection={(letter) => handleLetterSelection(letter)}></AlphabeticalNav>
-            <CitiesResultList citiesDisplayed={citiesDisplayed} citySelection={citySelection}></CitiesResultList>
+            <AlphabeticalNav cities={cities} handleLetterSelection={(letter) => handleLetterSelection(letter)} />
+            <CitiesResultList citiesDisplayed={citiesDisplayed} citySelection={citySelection} />
         </section>
     );
 }
