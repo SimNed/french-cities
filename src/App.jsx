@@ -7,25 +7,25 @@ import CityDetails from './components/Details/CityDetails';
 import './App.css';
 
 function App() {
-  
+
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState({});
 
-  function handleCitiesSearchResult(result){
+  function handleCitiesSearchResult(result) {
     setCities(result);
   }
 
-  return(
-      <main>
-        <aside>
-          <SearchSection handleSearchResult={(result) => handleCitiesSearchResult(result)}></SearchSection>
-          <CitiesSection cities={cities} citySelection={setSelectedCity}></CitiesSection>
-        </aside>
-        <section className='main-section'>
-          <h1>Villes Françaises</h1>
-          <CityDetails selectedCity={selectedCity}></CityDetails>      
-        </section>
-      </main>
+  return (
+    <main>
+      <aside>
+        <SearchSection handleSearchResult={(result) => handleCitiesSearchResult(result)} citySelection={setSelectedCity}></SearchSection>
+        <CitiesSection cities={cities} citySelection={setSelectedCity}></CitiesSection>
+      </aside>
+      <section className='main-section'>
+        <h1>Villes Françaises</h1>
+        <CityDetails selectedCity={selectedCity}></CityDetails>
+      </section>
+    </main>
   )
 }
 

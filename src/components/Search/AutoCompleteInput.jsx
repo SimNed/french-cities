@@ -1,24 +1,25 @@
 import { useState } from "react";
 
-const AutoCompleteInput = ({ options, onChange }) => {
+const AutoCompleteInput = ({ placeholder, options, onChange, onOptionClick }) => {
 
     const [showOptions, setShowOptions] = useState(false);
 
-    return(
+    return (
         <div className="autocomplete-input-container">
             <input
-                placeholder="entre une ville"
+                placeholder={placeholder}
                 onChange={(e) => onChange(e.target.value)}
                 onFocus={() => setShowOptions(true)}
                 onBlur={() => setShowOptions(false)}
             />
-            {showOptions &&(
-                <ul className="autocomplete-options-container">{
-                    options.map(option =>
-                         <li key={option.nom + option.code}>{option.nom} ({option.departement.code})</li>
-                    )
-                }</ul>
-            )}
+            {showOptions && (<ul className={"autocomplete-options-container"}>{
+                options.map(option =>
+                    <li key={option.nom + option.code} onMouseDown={() => onOptionClick(option.nom)}>{option.nom} ({option.departement.code})</li>
+                )
+            }</ul>)
+            }
+
+
         </div>
     )
 }
